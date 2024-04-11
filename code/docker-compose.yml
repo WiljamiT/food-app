@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+    backend:
+        container_name: foodapp-backend
+        image: mongo:latest
+        restart: always
+        environment:
+            DB_NAME: foodapp
+            MONGO_INITDB_DATABASE: foodapp
+        ports:
+            - 27017:27017
+        volumes:
+            - ./.docker/foodapp-backend/seed-mongodb.js:/docker-entrypoint-initdb.d/seed-mongodb.js
+            - mongodb_data_container:/data/db
+            
+volumes:
+    mongodb_data_container:
