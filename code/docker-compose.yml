@@ -1,5 +1,27 @@
 version: "3.0"
 services:
+    # frontend
+    application:
+        container_name: foodapp-application
+        image: node:lts-alpine
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./code:/home/node/code
+        working_dir: /home/node/code/foodapp-application
+        depends_on:
+            - backend
+        environment:
+            # set node environment to development
+            # - NODE_ENV=development
+            # configure hot reloading
+            - HOST=0.0.0.0
+            - CHOKIDAR_USEPOLLING=true
+            - CHOKIDAR_INTERVAL=100
+        tty: true
+        command: "npm run dev"
+
+    # backend
     backend:
         container_name: foodapp-backend
         image: mongo:latest
@@ -10,8 +32,8 @@ services:
         ports:
             - 27017:27017
         volumes:
-            - ./.docker/foodapp-backend/seed-mongodb.js:/docker-entrypoint-initdb.d/seed-mongodb.js
+            - ./.docker/foodapp-backend/seed-mongodb1.js:/docker-entrypoint-initdb.d/seed-mongodb1.js
             - mongodb_data_container:/data/db
-            
+    
 volumes:
     mongodb_data_container:
