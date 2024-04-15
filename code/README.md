@@ -13,3 +13,10 @@ DB aloittaa esitäytetyllä tietokannalla.
 Kopioidaan seeding skrtipti "seed-mongodb.js" kontin "docker-entrypoint-initdb.d/" kansioon käynnistyessä.
 MongoDB image suorittaa tässä kansiossa olevat skriptit envissä määriteltyä DB:tä vastaan,
 jos konttien "X" hakemistossa ei ole filuja käynnistyksen yhteydessä.
+
+MIDDLEWARE
+
+GRAPHQL API
+Api to the middleware by defining its schema, resolvers for qs and mutation. 
+
+Apollo serverillä yksi endpointti: /api/graphql joka integroituu Next.js "nimi tähän" paketilla. 
