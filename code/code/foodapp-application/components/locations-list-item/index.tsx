@@ -16,7 +16,7 @@ const LocationsListItem = (props: PropsInterface): JSX.Element => {
                         <h2>
                             {location.name}
                             <small className={styles.details}>
-                                {location.cuisine} in {location.brough}
+                                {location.cuisine} in {location.borough}
                             </small>
                         </h2>
                     </Link>
