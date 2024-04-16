@@ -19,7 +19,7 @@ const Home: NextPage = (
                 <meta name="description" content="The Food App - Home" />
             </Head>
 
-            <h1>Welcome to the Food App!</h1>
+            <h1>Welcome to the Food App!!</h1>
             <LocationsList locations={locations} />
         </div>
     );
